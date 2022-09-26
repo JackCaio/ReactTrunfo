@@ -93,7 +93,7 @@ class App extends React.Component {
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
+      cardImage, cardRare, cardTrunfo } = this.state;
     return (
       <>
         <Form
