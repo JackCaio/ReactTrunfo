@@ -4,7 +4,7 @@ import React from 'react';
 class Form extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, isSaveButtonDisabled,
+      cardImage, cardRare, cardTrunfo, hasTrunfo, isSaveButtonDisabled,
       onInputChange, onSaveButtonClick } = this.props;
     return (
       <>
@@ -122,7 +122,7 @@ Form.defaultProps = {
   cardImage: '',
   cardRare: 'normal',
   cardTrunfo: false,
-  // hasTrunfo: false,
+  hasTrunfo: false,
   isSaveButtonDisabled: true,
 };
 
@@ -135,7 +135,7 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  // hasTrunfo: PropTypes.bool,
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,

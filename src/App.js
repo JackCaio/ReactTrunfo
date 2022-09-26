@@ -4,19 +4,30 @@ import Form from './components/Form';
 
 const maxAttr = 210;
 const maxSingleAttr = 90;
+const defState = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
+  cardImage: '',
+  cardRare: 'normal',
+  cardTrunfo: false,
+};
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
+      cardArr: [],
     };
   }
 
@@ -62,11 +73,27 @@ class App extends React.Component {
     });
   };
 
-  onSaveButtonClick = () => true;
+  handleHasTrunfo = () => {
+    const { cardTrunfo } = this.state;
+    this.setState({
+      hasTrunfo: cardTrunfo,
+    });
+  };
+
+  onSaveButtonClick = () => {
+    this.handleHasTrunfo();
+    const card = { ...this.state };
+    delete card.cardArr;
+    delete card.hasTrunfo;
+    this.setState((prev) => ({
+      cardArr: [...prev.cardArr, card],
+    }));
+    this.setState({ ...defState });
+  };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo } = this.state;
+      cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
     return (
       <>
         <Form
