@@ -4,17 +4,25 @@ import Card from './Card';
 
 class Deck extends React.Component {
   render() {
-    const { cards } = this.props;
+    const { cards, delCard } = this.props;
     return (
       <div className="deck">
-        {cards.map((card, i) => <Card key={ i } { ...card } />)}
+        {cards.map((card, i) => (
+          <Card
+            key={ i }
+            { ...card }
+            preview={ false }
+            delCard={ delCard }
+            cardIndex={ i }
+          />
+        ))}
       </div>
     );
   }
 }
 
 Deck.propTypes = {
-  cards: PropTypes.arrayOf([
+  cards: PropTypes.arrayOf(
     PropTypes.shape({
       cardName: PropTypes.string,
       cardDescription: PropTypes.string,
@@ -25,7 +33,8 @@ Deck.propTypes = {
       cardRare: PropTypes.string,
       cardTrunfo: PropTypes.bool,
     }),
-  ]).isRequired,
+  ).isRequired,
+  delCard: PropTypes.func.isRequired,
 };
 
 export default Deck;

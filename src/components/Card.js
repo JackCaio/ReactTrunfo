@@ -4,7 +4,18 @@ import React from 'react';
 class Card extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo } = this.props;
+      cardImage, cardRare, cardTrunfo, preview, delCard, cardIndex } = this.props;
+
+    const delButton = (
+      <button
+        data-testid="delete-button"
+        type="button"
+        name={ cardIndex }
+        onClick={ delCard }
+      >
+        Excluir
+      </button>
+    );
     return (
       <div className="card">
         <p data-testid="name-card">{cardName}</p>
@@ -15,6 +26,7 @@ class Card extends React.Component {
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
         <p data-testid="rare-card">{cardRare}</p>
         {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''}
+        {preview ? '' : delButton}
       </div>
     );
   }
@@ -29,6 +41,9 @@ Card.defaultProps = {
   cardImage: '',
   cardRare: 'normal',
   cardTrunfo: false,
+  preview: true,
+  cardIndex: 0,
+  delCard: () => {},
 };
 
 Card.propTypes = {
@@ -40,6 +55,9 @@ Card.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
+  preview: PropTypes.bool,
+  delCard: PropTypes.func,
+  cardIndex: PropTypes.number,
 };
 
 export default Card;

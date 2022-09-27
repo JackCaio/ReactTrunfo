@@ -92,6 +92,30 @@ class App extends React.Component {
     this.setState({ ...defState });
   };
 
+  verTrunfo = (index) => {
+    const { cardArr } = this.state;
+    const card = cardArr[index];
+    if (card.cardTrunfo) {
+      this.setState({
+        hasTrunfo: false,
+      });
+    }
+  };
+
+  delCard = (event) => {
+    const cardIndex = event.target.name;
+    this.verTrunfo(cardIndex);
+    console.log(cardIndex);
+    if (cardIndex >= 0) {
+      this.setState((prev) => {
+        prev.cardArr.splice(cardIndex, 1);
+        return ({
+          cardArr: prev.cardArr,
+        });
+      });
+    }
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, cardArr } = this.state;
@@ -113,7 +137,7 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {cardArr.length > 0 ? <Deck cards={ cardArr } /> : ''}
+        {cardArr.length > 0 ? <Deck cards={ cardArr } delCard={ this.delCard } /> : ''}
       </>
     );
   }
