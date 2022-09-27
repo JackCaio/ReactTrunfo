@@ -30,6 +30,7 @@ class App extends React.Component {
       hasTrunfo: false,
       cardArr: [],
       filterName: '',
+      filterRare: 'todas',
     };
   }
 
@@ -118,14 +119,16 @@ class App extends React.Component {
   };
 
   deckFilt = () => {
-    const { filterName, cardArr } = this.state;
-    return cardArr.filter((card) => card.cardName.includes(filterName));
+    const { filterName, filterRare, cardArr } = this.state;
+    return cardArr
+      .filter((card) => card.cardName.includes(filterName))
+      .filter((card) => (filterRare === 'todas' || card.cardRare === filterRare));
     // return cardArr;
   };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, cardArr, filterName } = this.state;
+      cardImage, cardRare, cardTrunfo, cardArr, filterName, filterRare } = this.state;
     return (
       <>
         <Form
@@ -155,6 +158,21 @@ class App extends React.Component {
               onChange={ this.onInputChange }
               value={ filterName }
             />
+          </label>
+          <label htmlFor="filterRare">
+            Raridade:
+            <select
+              id="filterRare"
+              name="filterRare"
+              data-testid="rare-filter"
+              onChange={ this.onInputChange }
+              value={ filterRare }
+            >
+              <option value="todas">Todas</option>
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito Raro</option>
+            </select>
           </label>
         </div>
         {cardArr.length > 0 ? <Deck cards={ this.deckFilt() } delCard={ this.delCard } /> : ''}
