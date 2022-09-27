@@ -107,7 +107,6 @@ class App extends React.Component {
   delCard = (event) => {
     const cardIndex = event.target.name;
     this.verTrunfo(cardIndex);
-    console.log(cardIndex);
     if (cardIndex >= 0) {
       this.setState((prev) => {
         prev.cardArr.splice(cardIndex, 1);
@@ -118,7 +117,7 @@ class App extends React.Component {
     }
   };
 
-  deckFilt = () => {
+  deckFilter = () => {
     const { filterName, filterRare, cardArr } = this.state;
     return cardArr
       .filter((card) => card.cardName.includes(filterName))
@@ -129,6 +128,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, cardArr, filterName, filterRare } = this.state;
+    const deck = this.deckFilter();
     return (
       <>
         <Form
@@ -175,7 +175,7 @@ class App extends React.Component {
             </select>
           </label>
         </div>
-        {cardArr.length > 0 ? <Deck cards={ this.deckFilt() } delCard={ this.delCard } /> : ''}
+        {cardArr.length > 0 ? <Deck cards={ deck } delCard={ this.delCard } /> : ''}
       </>
     );
   }
