@@ -17,7 +17,7 @@ class Card extends React.Component {
       </button>
     );
     return (
-      <div className="card">
+      <div className="cardPreview">
         <p data-testid="name-card">{cardName}</p>
         <p data-testid="description-card">{cardDescription}</p>
         <p data-testid="attr1-card">{cardAttr1}</p>

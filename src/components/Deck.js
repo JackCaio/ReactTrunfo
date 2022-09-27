@@ -11,7 +11,7 @@ class Deck extends React.Component {
     });
     const filteredDeck = deckFilter(markCard);
     return (
-      <div className="deck">
+      <div className="cards">
         {filteredDeck
           .map((card) => (
             <Card

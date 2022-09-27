@@ -1,0 +1,39 @@
+.cardForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input, textarea, select {
+  border: none;
+  border-bottom: 1px solid var(--border-gray);
+  margin-bottom: 0.6rem;
+  padding: 0.7rem 0.75rem;
+  resize: none;
+  width: 100%;
+}
+
+.attr, .imagem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+
+.attr label, .imagem label {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.attr input, .imagem input {
+  width: 80%;
+}
+
+.somaPontos {
+  align-self: end;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
