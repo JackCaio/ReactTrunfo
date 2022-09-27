@@ -80,10 +80,12 @@ class App extends React.Component {
   };
 
   handleHasTrunfo = () => {
-    const { cardTrunfo } = this.state;
-    this.setState({
-      hasTrunfo: cardTrunfo,
-    });
+    const { cardTrunfo, hasTrunfo } = this.state;
+    if (!hasTrunfo) {
+      this.setState({
+        hasTrunfo: cardTrunfo,
+      });
+    }
   };
 
   onSaveButtonClick = () => {
