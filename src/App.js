@@ -120,12 +120,12 @@ class App extends React.Component {
     }
   };
 
-  deckFilter = () => {
-    const { filterName, filterRare, filterTrunfo, cardArr } = this.state;
+  deckFilter = (arr) => {
+    const { filterName, filterRare, filterTrunfo } = this.state;
     if (filterTrunfo) {
-      return cardArr.filter((card) => card.cardTrunfo);
+      return arr.filter((card) => card.cardTrunfo);
     }
-    return cardArr
+    return arr
       .filter((card) => card.cardName.includes(filterName))
       .filter((card) => (filterRare === 'todas' || card.cardRare === filterRare));
   };
@@ -134,7 +134,6 @@ class App extends React.Component {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo, cardArr, filterName, filterRare,
       filterTrunfo } = this.state;
-    const deck = this.deckFilter();
     return (
       <>
         <Form
@@ -194,7 +193,13 @@ class App extends React.Component {
             />
           </label>
         </div>
-        {cardArr.length > 0 ? <Deck cards={ deck } delCard={ this.delCard } /> : ''}
+        {cardArr.length > 0 ? (
+          <Deck
+            cards={ cardArr }
+            deckFilter={ this.deckFilter }
+            delCard={ this.delCard }
+          />
+        ) : ''}
       </>
     );
   }
