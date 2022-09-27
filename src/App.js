@@ -29,6 +29,7 @@ class App extends React.Component {
       cardTrunfo: false,
       hasTrunfo: false,
       cardArr: [],
+      filterName: '',
     };
   }
 
@@ -116,9 +117,15 @@ class App extends React.Component {
     }
   };
 
+  deckFilt = () => {
+    const { filterName, cardArr } = this.state;
+    return cardArr.filter((card) => card.cardName.includes(filterName));
+    // return cardArr;
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, cardArr } = this.state;
+      cardImage, cardRare, cardTrunfo, cardArr, filterName } = this.state;
     return (
       <>
         <Form
@@ -137,7 +144,20 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {cardArr.length > 0 ? <Deck cards={ cardArr } delCard={ this.delCard } /> : ''}
+        <div className="filter">
+          <label htmlFor="filterName">
+            Nome:
+            <input
+              id="filterName"
+              name="filterName"
+              data-testid="name-filter"
+              type="text"
+              onChange={ this.onInputChange }
+              value={ filterName }
+            />
+          </label>
+        </div>
+        {cardArr.length > 0 ? <Deck cards={ this.deckFilt() } delCard={ this.delCard } /> : ''}
       </>
     );
   }

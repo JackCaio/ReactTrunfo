@@ -7,15 +7,16 @@ class Deck extends React.Component {
     const { cards, delCard } = this.props;
     return (
       <div className="deck">
-        {cards.map((card, i) => (
-          <Card
-            key={ i }
-            { ...card }
-            preview={ false }
-            delCard={ delCard }
-            cardIndex={ i }
-          />
-        ))}
+        {cards
+          .map((card, i) => (
+            <Card
+              key={ i }
+              { ...card }
+              preview={ false }
+              delCard={ delCard }
+              cardIndex={ i }
+            />
+          ))}
       </div>
     );
   }
