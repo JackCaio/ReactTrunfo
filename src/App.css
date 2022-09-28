@@ -75,6 +75,10 @@ img {
   width: 100%;
 }
 
+body {
+  background-color: #052727;
+}
+
 button {
   background: var(--accent);
   border: transparent;
@@ -122,11 +126,11 @@ button:disabled {
 } */
 
 .cardCreation {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 19px rgba(0, 0, 0, 0.8);
   display: flex;
-}
-
-.cardForm, .cardPreview {
-  flex: 1;
+  margin: 20px 40px;
   padding: 30px;
 }
 

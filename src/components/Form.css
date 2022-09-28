@@ -1,6 +1,7 @@
 .cardForm {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 input, textarea, select {

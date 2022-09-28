@@ -1,0 +1,13 @@
+.cardPreview {
+  background-color: #036b52;
+  border: 9px solid white;
+  border-radius: 9px;
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
+  margin: 0 auto;
+  min-width: 300px;
+  width: 25%;
+}
+
+.cardPreview * {
+  border: 1px solid red;
+}

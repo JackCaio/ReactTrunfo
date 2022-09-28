@@ -141,7 +141,7 @@ class App extends React.Component {
       filterTrunfo } = this.state;
     return (
       <>
-        <h1>Tryunfo</h1>
+        <h1 style={ { color: 'white' } }>Tryunfo</h1>
         <div className="cardCreation">
           <Form
             { ...this.state }
