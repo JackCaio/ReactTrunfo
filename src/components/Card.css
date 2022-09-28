@@ -8,16 +8,27 @@
   box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 300px;
+  height: 500px;
   outline: 9px solid white;
   padding: 7px;
-  width: 25%;
+  width: 300px;
 }
 
-.attr-container p {
-  align-items: center;
+.attr-container {
   display: flex;
+  flex-direction: column;
+  gap: 7px;
+  height: 40%;
+  justify-content: center;
+  padding: 20px 6px;
+}
+
+.attr-container .card-attr {
+  align-items: center;
+  background: #f0f2f5;
+  border-radius: 9px;
+  display: flex;
+  height: 2rem;
 }
 
 .attr-container span {

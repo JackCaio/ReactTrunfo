@@ -4,16 +4,6 @@
   width: 50%;
 }
 
-input, textarea, select {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-gray);
-  margin-bottom: 0.6rem;
-  padding: 0.7rem 0.75rem;
-  resize: none;
-  width: 100%;
-}
-
 .attr, .imagem {
   display: flex;
   flex-direction: column;

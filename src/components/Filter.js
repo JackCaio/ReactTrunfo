@@ -6,8 +6,8 @@ class Filter extends React.Component {
     const { filterName, filterRare, filterTrunfo, onInputChange } = this.props;
     return (
       <div className="filter">
-        <label htmlFor="filterName">
-          Nome:
+        <label htmlFor="filterName" style={ { flex: 2 } }>
+          Nome
           <input
             id="filterName"
             name="filterName"
@@ -18,8 +18,13 @@ class Filter extends React.Component {
             disabled={ filterTrunfo }
           />
         </label>
-        <label htmlFor="filterRare">
-          Raridade:
+        <label
+          htmlFor="filterRare"
+          style={ {
+            flex: 2,
+          } }
+        >
+          Raridade
           <select
             id="filterRare"
             name="filterRare"
@@ -27,6 +32,10 @@ class Filter extends React.Component {
             onChange={ onInputChange }
             value={ filterRare }
             disabled={ filterTrunfo }
+            style={ {
+              color: 'white',
+              background: '#036b52',
+            } }
           >
             <option value="todas">Todas</option>
             <option value="normal">Normal</option>
@@ -34,8 +43,16 @@ class Filter extends React.Component {
             <option value="muito raro">Muito Raro</option>
           </select>
         </label>
-        <label htmlFor="filterTrunfo">
-          Super Trunfo:
+        <label
+          htmlFor="filterTrunfo"
+          style={ {
+            flex: 1,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          } }
+        >
+          Super Trunfo
           <input
             id="filterTrunfo"
             name="filterTrunfo"
@@ -43,6 +60,11 @@ class Filter extends React.Component {
             type="checkbox"
             checked={ filterTrunfo }
             onChange={ onInputChange }
+            style={ {
+              margin: 0,
+              marginLeft: '5px',
+              width: 'auto',
+            } }
           />
         </label>
       </div>

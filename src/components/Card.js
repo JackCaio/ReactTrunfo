@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import placeholder from '../img/img.png';
 import './Card.css';
+import Progress from './Progress';
 
 class Card extends React.Component {
   render() {
@@ -33,13 +35,22 @@ class Card extends React.Component {
               color: 'white',
               background: '#023031',
               textAlign: 'end',
+              overflow: 'hidden',
             } }
           >
             <span />
             {cardName}
           </p>
-          <p data-testid="description-card" style={ { order: 2 } }>
-            <span>Descrição</span>
+          <p
+            data-testid="description-card"
+            style={ {
+              order: 2,
+              height: '65px',
+              overflow: 'hidden',
+              overflowWrap: 'break-word',
+              fontSize: '12px',
+            } }
+          >
             {cardDescription}
           </p>
           <div
@@ -48,28 +59,32 @@ class Card extends React.Component {
               order: 2,
               marginTop: 'auto',
               background: 'white',
-              padding: '6px',
               borderRadius: '0 0 9px 9px',
             } }
           >
-            <p data-testid="attr1-card">
+            <div className="card-attr" data-testid="attr1-card">
               <span>Attr1</span>
-              <progress id="attr1" value={ cardAttr1 } max="90" />
+              <Progress value={ cardAttr1 } max="90" color="green" />
               <span>{cardAttr1}</span>
-            </p>
-            <p data-testid="attr2-card">
+            </div>
+            <div className="card-attr" data-testid="attr2-card">
               <span>Attr2</span>
-              <progress id="attr1" value={ cardAttr2 } max="90" />
+              <Progress value={ cardAttr2 } max="90" color="blue" />
               <span>{cardAttr2}</span>
-            </p>
-            <p data-testid="attr3-card">
+            </div>
+            <div className="card-attr" data-testid="attr3-card">
               <span>Attr3</span>
-              <progress id="attr1" value={ cardAttr3 } max="90" />
+              <Progress value={ cardAttr3 } max="90" color="red" />
               <span>{cardAttr3}</span>
-            </p>
+            </div>
           </div>
-          <div className="img-container" style={ { order: 1 } }>
-            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+          <div className="img-container" style={ { order: 1, height: '40%' } }>
+            <img
+              data-testid="image-card"
+              src={ cardImage || placeholder }
+              alt={ cardName }
+              style={ { height: '100%' } }
+            />
           </div>
           <p data-testid="rare-card" style={ { order: 0, display: 'none' } }>
             <span>Raridade</span>
