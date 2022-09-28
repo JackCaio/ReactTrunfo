@@ -17,36 +17,69 @@ class Card extends React.Component {
         Excluir
       </button>
     );
+
     return (
-      <div className="cardPreview">
-        <p data-testid="name-card">
-          <span>Nome:</span>
-          {cardName}
-        </p>
-        <p data-testid="description-card">
-          <span>Descrição</span>
-          {cardDescription}
-        </p>
-        <p data-testid="attr1-card">
-          <span>Attr1</span>
-          {cardAttr1}
-        </p>
-        <p data-testid="attr2-card">
-          <span>Attr2</span>
-          {cardAttr2}
-        </p>
-        <p data-testid="attr3-card">
-          <span>Attr3</span>
-          {cardAttr3}
-        </p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        <p data-testid="rare-card">
-          <span>Raridade</span>
-          {cardRare}
-        </p>
-        {cardTrunfo ? <p data-testid="trunfo-card">Super Trunfo</p> : ''}
-        {preview ? '' : delButton}
-      </div>
+      <>
+        <div className="card">
+          <p
+            data-testid="name-card"
+            style={ {
+              order: 0,
+              fontSize: '1.3rem',
+              fontWeight: 700,
+              height: '2rem',
+              padding: '0 5px',
+              borderRadius: '9px 9px 0 0',
+              color: 'white',
+              background: '#023031',
+              textAlign: 'end',
+            } }
+          >
+            <span />
+            {cardName}
+          </p>
+          <p data-testid="description-card" style={ { order: 2 } }>
+            <span>Descrição</span>
+            {cardDescription}
+          </p>
+          <div
+            className="attr-container"
+            style={ {
+              order: 2,
+              marginTop: 'auto',
+              background: 'white',
+              padding: '6px',
+              borderRadius: '0 0 9px 9px',
+            } }
+          >
+            <p data-testid="attr1-card">
+              <span>Attr1</span>
+              <progress id="attr1" value={ cardAttr1 } max="90" />
+              <span>{cardAttr1}</span>
+            </p>
+            <p data-testid="attr2-card">
+              <span>Attr2</span>
+              <progress id="attr1" value={ cardAttr2 } max="90" />
+              <span>{cardAttr2}</span>
+            </p>
+            <p data-testid="attr3-card">
+              <span>Attr3</span>
+              <progress id="attr1" value={ cardAttr3 } max="90" />
+              <span>{cardAttr3}</span>
+            </p>
+          </div>
+          <div className="img-container" style={ { order: 1 } }>
+            <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+          </div>
+          <p data-testid="rare-card" style={ { order: 0, display: 'none' } }>
+            <span>Raridade</span>
+            {cardRare}
+          </p>
+          {cardTrunfo ? (
+            <p data-testid="trunfo-card" style={ { order: 9 } }>Super Trunfo</p>) : ''}
+        </div>
+        {preview || delButton}
+      </>
     );
   }
 }
