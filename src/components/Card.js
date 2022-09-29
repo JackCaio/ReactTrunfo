@@ -15,6 +15,7 @@ class Card extends React.Component {
         type="button"
         name={ cardIndex }
         onClick={ delCard }
+        style={ { marginTop: '15px' } }
       >
         Excluir
       </button>

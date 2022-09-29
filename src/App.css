@@ -170,10 +170,14 @@ label {
   color: white;
 }
 
-.filter input, select {
+.filter input, .filter select {
   border: 1px solid white;
 }
 
 .cards {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fill, 280px);
+  justify-content: space-between;
   padding: 10px;
 }

@@ -14,13 +14,21 @@ class Deck extends React.Component {
       <div className="cards">
         {filteredDeck
           .map((card) => (
-            <Card
+            <div
               key={ card.index }
-              { ...card }
-              preview={ false }
-              delCard={ delCard }
-              cardIndex={ card.index }
-            />
+              style={ {
+                width: '280px',
+                display: 'flex',
+                flexDirection: 'column',
+              } }
+            >
+              <Card
+                { ...card }
+                preview={ false }
+                delCard={ delCard }
+                cardIndex={ card.index }
+              />
+            </div>
           ))}
       </div>
     );
