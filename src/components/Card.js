@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import placeholder from '../img/img.png';
+import trunfo from '../img/trunfo.svg';
 import './Card.css';
 import Progress from './Progress';
 
@@ -21,23 +22,14 @@ class Card extends React.Component {
       </button>
     );
 
+    const cardClass = cardRare.split(' ').join('-');
+
     return (
       <>
-        <div className="card">
+        <div className={ `card ${cardClass}` }>
           <p
             data-testid="name-card"
-            style={ {
-              order: 0,
-              fontSize: '1.3rem',
-              fontWeight: 700,
-              height: '2rem',
-              padding: '0 5px',
-              borderRadius: '9px 9px 0 0',
-              color: 'white',
-              background: '#023031',
-              textAlign: 'end',
-              overflow: 'hidden',
-            } }
+            className={ `nameCard ${cardClass}` }
           >
             <span />
             {cardName}
@@ -50,6 +42,7 @@ class Card extends React.Component {
               overflow: 'hidden',
               overflowWrap: 'break-word',
               fontSize: '12px',
+              color: 'white',
             } }
           >
             {cardDescription}
@@ -79,7 +72,21 @@ class Card extends React.Component {
               <span>{cardAttr3}</span>
             </div>
           </div>
-          <div className="img-container" style={ { order: 1, height: '40%' } }>
+          <div
+            className="img-container"
+            style={ { order: 1, height: '40%', position: 'relative' } }
+          >
+            {cardTrunfo && (
+              <img
+                src={ trunfo }
+                alt="trunfo"
+                style={ {
+                  opacity: '0.6',
+                  position: 'absolute',
+                  width: '20%',
+                } }
+              />
+            )}
             <img
               data-testid="image-card"
               src={ cardImage || placeholder }
@@ -92,7 +99,13 @@ class Card extends React.Component {
             {cardRare}
           </p>
           {cardTrunfo ? (
-            <p data-testid="trunfo-card" style={ { order: 9 } }>Super Trunfo</p>) : ''}
+            <p
+              data-testid="trunfo-card"
+              style={ { order: 9, display: 'none' } }
+            >
+              Super Trunfo
+
+            </p>) : ''}
         </div>
         {preview || delButton}
       </>

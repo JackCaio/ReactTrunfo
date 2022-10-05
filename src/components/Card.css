@@ -2,8 +2,22 @@
   border: 1px solid red;
 } */
 
+:root {
+
+  --normal-card-bg: #036b52;
+
+  --normal-cardName-bg: #023031;
+
+  --rare-card-bg: #1e2f97;
+
+  --rare-cardName-bg: #0e1e2b;
+
+  --vrare-card-bg: #8d6701;
+
+  --vrare-cardName-bg: #6a4d00;
+}
+
 .card {
-  background-color: #036b52;
   border-radius: 9px;
   box-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -12,6 +26,42 @@
   outline: 9px solid white;
   padding: 7px;
   width: 280px;
+}
+
+.normal {
+  background-color: var(--normal-card-bg);
+}
+
+.raro {
+  background-color: var(--rare-card-bg);
+}
+
+.muito-raro {
+  background-color: var(--vrare-card-bg);
+}
+
+.nameCard {
+  border-radius: 9px 9px 0 0;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  height: 2rem;
+  order: 0;
+  overflow: hidden;
+  padding: 0 5px;
+  text-align: end;
+}
+
+.card .normal {
+  background: var(--normal-cardName-bg);
+}
+
+.card .raro {
+  background: var(--rare-cardName-bg);
+}
+
+.card .muito-raro {
+  background: var(--vrare-cardName-bg);
 }
 
 .attr-container {
